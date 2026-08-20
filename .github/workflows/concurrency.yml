@@ -1,0 +1,19 @@
+name: test Deployment & concurrency
+
+on:
+  push:
+    branches:
+      - main
+
+concurrency:
+  group: test
+  cancel-in-progress: true
+
+jobs:
+
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Deploy application
+        run: echo "Deploying application..."
